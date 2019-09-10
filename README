@@ -1,0 +1,13 @@
+在学习中一个不成熟的VUE小项目：
+每个页面被分成了一个独立的组件，并通过export default向外暴露出去
+
+index.html 中引入了index.js。index.html放入了app,router-view
+index.js管理整个项目的逻辑，有对app组件的注册，routerObj的注册，以及vuex.store的注册
+router.js管理项目的路由，如
+var routerObj=new VueRouter({
+                      routes:[
+                          {path:'/',component:home},
+                          {path:'/home',component:home},。。。。。。。
+app.vue是项目的公共样式组件
+home.vue是首页组件，每个有关跳转的链接通过router-link..to实现跳转，并将跳转的地址在router.js里的path，conponent注册
+其他的.vue文件都是相关页面的组件，后台数据通过this.$http.get('地址').then(function(result){result.body})拿到
